@@ -64,17 +64,22 @@ PS1='%{$fg[green]%}%n@%2m: %{$fg[blue]%}%~%{$fg[green]%}$(__git_ps1)%{$reset_col
 [$(date +%H:%M:%S)]> '
 
 # BREW
-export BREW_PREFIX="$HOME/homebrew"
+if [[ -f $HOME/homebrew ]] then
+    export BREW_PREFIX="$HOME/homebrew"
+    eval "$($HOME/homevrew/bin/brew shellenv)"
+else
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Add .bin to PATH
-export PATH="$BREW_PREFIX/bin:$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/.bin"
 # Setup fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 
 # ZSH completions
-FPATH="$BREW_PREFIX/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit
-compinit
+# FPATH="$BREW_PREFIX/share/zsh/site-functions:${FPATH}"
+# autoload -Uz compinit
+# compinit
 
 # Local overrides
 source $HOME/.zshrc.local

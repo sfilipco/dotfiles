@@ -1,33 +1,37 @@
 # dotfiles
+
 Configuration files managed using [chezmoi](https://www.chezmoi.io/).
 
-# Requirements
+## Requirements
+
 Brew. Then:
+
 ```
 touch ~/.zshrc.local
 brew install \
+  MisterTea/et/et \
   alacritty \
-  neovim \
-  tmux \
-  fzf \
-  tpm \
-  ripgrep \
+  chezmoi \
   fd \
+  fzf \
+  gh \
+  ghostty \
+  neovim \
+  npm \
+  nushell \
+  ripgrep \
   rust \
   rust-analyzer \
-  gh \
-  MisterTea/et/et \
-  nushell \
-  chezmoi
+  tmux \
+  tpm
+
 ```
 
-# FZF
-Run `fzf` to generate `.fzf.zsh`.
+## Tmux
 
-# Tmux
 Install plugins with `C-A I`.
 Start session with `tmux $TMUX_OPTIONS new-session -As auto`.
 
-# Neovim
-See package manager to install: 
-  https://github.com/wbthomason/packer.nvim#quickstart
+## Neovim
+
+Using [LazyVim](https://www.lazyvim.org/).
